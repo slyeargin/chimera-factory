@@ -1,0 +1,45 @@
+extends ../shared/template
+
+block content
+  h1 Our Handcrafted, Artisanal Chimeras
+
+  #marketing Can't find what you were looking for?
+    a(href='/chimeras/new') Custom order your chimera today.
+
+  #filter
+    h2 Filter
+    form(method='GET', action='/chimeras/filter')
+      span.section Section of Body:
+        select(name='section')
+          option(value='headSpecies') Head
+          option(value='bodySpecies') Body
+          option(value='tailSpecies') Tail
+      span.species Species:
+        select(name='value')
+          option(value='chicken') Chicken
+          option(value='cow') Cow
+          option(value='fish') Fish
+          option(value='pig') Pig
+          option(value='unicorn') Unicorn
+      button Search
+
+  #collection
+    each chimera in chimeras
+      .chimera
+        h2
+          a(href='/chimeras/#{chimera._id}')= chimera.name
+        .chimeraPhoto
+          img(class='chimeraHead', src='/img/chimeras/' + chimera.headSpecies + '_head.png')
+          img(class='plus', src='/img/chimeras/plus.png')
+          img(class='chimeraBody', src='/img/chimeras/' + chimera.bodySpecies + '_body.png')
+          img(class='plus', src='/img/chimeras/plus.png')
+          img(class='chimeraTail', src='/img/chimeras/' + chimera.tailSpecies + '_tail.png')
+        .meta
+          .headSpecies Head: #{chimera.headSpecies}
+          .bodySpecies Body: #{chimera.bodySpecies}
+          .tailSpecies Tail: #{chimera.tailSpecies}
+          .age  Age: #{chimera.age}
+          .gender Gender: #{chimera.gender}
+        .delete
+          form(action='/chimeras/#{chimera._id}/delete', method='POST')
+            button Destroy Abomination

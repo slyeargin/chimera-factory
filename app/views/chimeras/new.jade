@@ -1,0 +1,40 @@
+extends ../shared/template
+
+block content
+  h1 Custom Order Your Chimera
+
+  #marketing Crafted with care, to your specifications.  Your artisan chimera is a few clicks away.
+
+  #controls
+    form#order(method='POST', action='/chimeras')
+      .name Name:
+        input(name='name', type='text', placeholder="Your creature's name")
+      .age Age:
+        input(name='age', type='number', placeholder="Your creature's age")
+      .gender Gender:
+        select(name='gender')
+          option(value='female') Female
+          option(value='male') Male
+      .headSpecies Species of Head:
+        select(name='headSpecies')
+          option(value='chicken') Chicken
+          option(value='cow') Cow
+          option(value='fish') Fish
+          option(value='pig') Pig
+          option(value='unicorn') Unicorn
+      .bodySpecies Species of Body:
+        select(name='bodySpecies')
+          option(value='chicken') Chicken
+          option(value='cow') Cow
+          option(value='fish') Fish
+          option(value='pig') Pig
+          option(value='unicorn') Unicorn
+      .tailSpecies Species of Tail:
+        select(name='tailSpecies')
+          option(value='chicken') Chicken
+          option(value='cow') Cow
+          option(value='fish') Fish
+          option(value='pig') Pig
+          option(value='unicorn') Unicorn
+
+      button Defy Nature

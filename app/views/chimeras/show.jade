@@ -1,0 +1,14 @@
+extends ../shared/template
+
+block content
+  h1= chimera.name
+
+  #profile
+    .chimera
+      .chimeraPhoto
+        img(class='chimeraHead', src='/img/chimeras/' + chimera.headSpecies + '_head.png')
+        img(class='plus', src='/img/chimeras/plus.png')
+        img(class='chimeraBody', src='/img/chimeras/' + chimera.bodySpecies + '_body.png')
+        img(class='plus', src='/img/chimeras/plus.png')
+        img(class='chimeraTail', src='/img/chimeras/' + chimera.tailSpecies + '_tail.png')
+      .meta #{chimera.name} has a #{chimera.headSpecies} head, a #{chimera.bodySpecies} and a #{chimera.tailSpecies} tail.

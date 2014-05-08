@@ -2,11 +2,27 @@ doctype html
 html
   head
     meta(charset='utf-8')
-    title= title
+    title Chimera Factory | #{title}
     link(href='/css/normalize.css', rel='stylesheet')
     link(href='/css/buttons.css', rel='stylesheet')
     link(href='/less/app.css', rel='stylesheet')
+    link(href='http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css', rel='stylesheet')
+
   body
+    header
+    nav
+      ul.fa-ul
+        li
+          i.fa-li.fa.fa-home
+          a(href='/') Home
+        li
+          a(href='/about') About
+        li
+          a(href='/chimeras') Gallery
+        li
+          a(href='/chimeras/new') Order
+    div#logo
+      img(src='/img/logo.png')
     block content
 
     script(src='/js/vendor/jquery-2.1.1.js')
