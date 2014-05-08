@@ -19,12 +19,25 @@ exports.show = (req, res)=>{
 
 exports.filter = (req, res)=>{
   var chimeras = global.nss.db.collection('chimeras');
-  var section = req.query.section;
   var value = req.query.value;
-  chimeras.find({'section': value}).toArray((err, records)=>{
-    res.render('chimeras/index', {chimeras: records, title: 'Gallery | Filter Chimeras'});
-    console.log(records);
-  });
+
+  switch(req.query.section){
+  case 'headSpecies':
+    chimeras.find({'headSpecies': value}).toArray((err, records)=>{
+      res.render('chimeras/index', {chimeras: records, title: 'Gallery | Filter Chimeras'});
+    });
+    break;
+  case 'bodySpecies':
+    chimeras.find({'bodySpecies': value}).toArray((err, records)=>{
+      res.render('chimeras/index', {chimeras: records, title: 'Gallery | Filter Chimeras'});
+    });
+    break;
+  case 'tailSpecies':
+    chimeras.find({'tailSpecies': value}).toArray((err, records)=>{
+      res.render('chimeras/index', {chimeras: records, title: 'Gallery | Filter Chimeras'});
+    });
+    break;
+  }
 };
 
 exports.new = (req, res)=>{
